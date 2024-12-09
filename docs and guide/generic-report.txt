@@ -31,38 +31,11 @@ The problem is compounded by the lack of affordable, user-friendly solutions tha
 	•	Lack of integration for personalized insights.
 	•	Limited to specific bank integrations.
 
-3.2 AI in Financial Planning
-
-	•	AI advancements in financial planning have enabled clustering and predictive analytics to:
-	•	Identify high-spending categories.
-	•	Predict future expenses based on historical data.
-	•	Studies show that tools using machine learning algorithms improve user satisfaction by 40% compared to static tools.
-
-3.3 Data Visualization Techniques
+3.2 Data Visualization Techniques
 
 	•	Visualization is crucial for financial tools to improve user comprehension of data:
 	•	Bar charts, pie charts, and trend lines simplify complex data.
 	•	Dynamic visuals lead to faster decision-making.
-
-References
-
-	1.	Financial Behavior Studies by Harvard Business Review, 2021.
-	2.	“The Role of Artificial Intelligence in Budget Planning,” AI and Finance, 2023.
-	3.	“Visualization Techniques for Financial Data,” Data Science Quarterly, 2022.
-	4.	“A Study of Financial Management Tools,” Global Finance Review, 2021.
-
-4. Objectives
-
-Primary Objective
-
-To create a fully functional, visually appealing, AI-enabled dashboard to analyze and manage financial transactions.
-
-Secondary Objectives
-
-	1.	Integrate AI algorithms for personalized saving recommendations.
-	2.	Enable multi-file uploads for consolidated data analysis.
-	3.	Create a responsive, user-friendly interface accessible on desktops and mobile devices.
-	4.	Provide secure user authentication for privacy and data security.
 
 5. Methodology
 
@@ -79,12 +52,7 @@ Secondary Objectives
 	3.	Database:
 	•	MySQL to store user authentication data and transaction details.
 
-5.3 AI Algorithm
-
-	•	Use K-Means clustering to identify high spending categories.
-	•	Predictive analytics using historical data trends for expense forecasting.
-
-5.4 Implementation
+5.3 Implementation
 
 	1.	User authentication: Login, signup, and session management.
 	2.	Multi-source file uploads: Parsing and merging CSV files.
@@ -95,7 +63,7 @@ Secondary Objectives
 	•	Pie chart for transaction sources.
 	4.	Saving recommendations using AI-based insights.
 
-5.5 Testing
+5.4 Testing
 
 	•	Unit testing for backend routes and functionalities.
 	•	User interface testing for seamless navigation.
@@ -139,9 +107,8 @@ python app.py
 Results
 
 	1.	Visualizations provide insights into spending habits and trends.
-	2.	AI-powered recommendations successfully identify cost-saving opportunities.
-	3.	User-friendly interface enables seamless file uploads and report generation.
-	4.	Integration with MySQL ensures secure and persistent user data storage.
+	2.	User-friendly interface enables seamless file uploads and report generation.
+	3.	Integration with MySQL ensures secure and persistent user data storage.
 
 Discussion
 
