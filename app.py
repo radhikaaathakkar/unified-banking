@@ -5,6 +5,7 @@ import mysql.connector
 import matplotlib
 matplotlib.use('Agg')  # Use non-GUI backend for macOS
 import matplotlib.pyplot as plt
+import bcrypt
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # For session management
@@ -40,10 +41,12 @@ def signup():
         username = request.form["username"]
         password = request.form["password"]
 
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
         try:
             conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, password))
+            cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, hashed_password))
             conn.commit()
             conn.close()
             flash("Signup successful! Please login.", "success")
@@ -63,15 +66,16 @@ def login():
 
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
+        cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
         user = cursor.fetchone()
         conn.close()
 
-        if user:
-            session["user_id"] = user["id"]
-            session["username"] = user["username"]
-            flash("Login successful!", "success")
-            return redirect("/")
+        if user and bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
+                # Password matches
+                session["user_id"] = user["id"]
+                session["username"] = user["username"]
+                flash("Login successful!", "success")
+                return redirect("/")
         else:
             flash("Invalid credentials. Please try again.", "danger")
 
